@@ -1,0 +1,70 @@
+body{
+    background-color: black;
+}
+
+#register{
+    float: left;
+    width: 40%;
+    height: 600px;
+    background-color: slategray;
+    margin: 2%;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+.submit{
+    background-color: red;
+    font-weight: bolder;
+}
+
+#search{
+    float: left;
+    width: 40%;
+    height: 600px;
+    background-color: slategray;
+    margin: 2%;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#idcard{
+    width: 60%;
+    height: 350px;
+    background-color: white;
+    margin-left: 20%;
+    margin-top: 5%;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+#top{
+    height: 26%;
+    background-color: mediumseagreen;
+}
+h1{
+    margin-bottom: 0px;
+}
+
+#leftimg{
+    height: 100%;
+    width: 100%;
+}
+#left{
+    float: left;
+    height: 70%;
+    width: 30%;
+    margin-left: 5%;
+    margin-top: 4px;
+}
+#right{
+    float: right;
+    width:60%;
+    height: 70%;
+    margin-right:5%;
+    margin-top: 4px;
+    color: black;
+    text-align: right;
+}
+
+
