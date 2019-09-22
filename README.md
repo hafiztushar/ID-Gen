@@ -1,4 +1,4 @@
-# RDMS-
+# RDMS-Id-Gen
 
 What is ID GEN?
 Our project ID GEN is basically a web based id generating system. 
