@@ -1,0 +1,100 @@
+create table sstudents(
+serial number,
+stdid varchar2(9),
+name varchar2(20),
+program varchar2(20),
+country varchar2(20),
+year number,
+programcode number,
+dept varchar2(20),
+deptcode number,
+imagename varchar2(20)
+);
+
+
+create sequence sstudent_sequence start with 001
+increment by 1
+minvalue 001
+maxvalue 999;
+
+
+/////
+create or replace function 
+getserial(year number)
+return number
+is
+serial number;
+begin
+select student_sequence.nextval into serial from dual;
+return serial;
+end;
+/
+/////
+
+
+create or replace function 
+getid (program varchar2,year number,dept varchar2)
+return varchar2
+is
+
+yy varchar2(4);
+dcode varchar2(1);
+pcode varchar2(1);
+serialcoden number;
+serialcode varchar2(3);
+final varchar2(9);
+begin
+select sstudent_sequence.nextval into serialcoden from dual;
+serialcode:=to_char(serialcoden);
+serialcode:=LPAD(serialcode,3,'0');
+
+yy:= to_char(year);
+yy:=SUBSTR(yy, 3, 2);
+yy:=RPAD(yy,4,'0');
+
+IF program= 'B.Sc.Engg.'
+THEN
+pcode:='1';
+ELSIF program= 'H.D.' THEN
+pcode:='0';
+end if;
+
+IF dept= 'mce' THEN
+dcode:='1';
+ELSIF dept= 'eee' THEN
+dcode:='2';
+ELSIF dept= 'cee' THEN
+dcode:='3';
+ELSIF dept= 'cse' THEN
+dcode:='4';
+end if;
+
+
+final:= (yy||dcode||pcode||serialcode);
+return final;
+end;
+/
+
+create or replace trigger ggenerate 
+before insert on sstudents
+for each row
+declare
+begin
+:new.stdid:=getid(:new.program,:new.year,:new.dept);
+end;
+/
+
+
+
+insert into sstudents(name,program,country,year,dept,imagename) values ('Hafizur Rahman','B.Sc.Engg.','Bangladesh',2016,'cse','1.jpg');
+
+
+
+
+
+
+
+
+
+
+
